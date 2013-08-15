@@ -5,4 +5,6 @@ Utilities for integrating with  the
 
 ## Building
 
+To build the osmdroid module run maven:
 
+    mvn install 
