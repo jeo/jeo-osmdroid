@@ -64,6 +64,10 @@ public class VectorOverlay extends Overlay {
             return;
         }
 
+        if (LOG.isDebugEnabled()) {
+            LOG.debug(String.format("Rendering [%s] at level %d", 
+                mapView.getBoundingBox().toString(), mapView.getZoomLevel()));
+        }
         DrawContext context = new DrawContext(mapView);
 
         RuleList rules = style.getRules().selectById(data.getName(), true).flatten();
