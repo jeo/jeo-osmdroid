@@ -2,7 +2,7 @@ package org.jeo.osmdroid;
 
 import org.jeo.android.graphics.Graphics;
 import org.jeo.data.Query;
-import org.jeo.data.VectorData;
+import org.jeo.data.VectorDataset;
 import org.jeo.feature.Feature;
 import org.jeo.geom.CoordinatePath;
 import org.jeo.geom.Geom;
@@ -40,7 +40,7 @@ public class VectorOverlay extends Overlay {
     static Logger LOG = LoggerFactory.getLogger(VectorOverlay.class);
 
     /** the dataset to overlay */
-    VectorData data;
+    VectorDataset data;
 
     /** style for rendered vectors */
     Style style;
@@ -49,7 +49,7 @@ public class VectorOverlay extends Overlay {
     PointF p;
     Rect r;
 
-    public VectorOverlay(Context context, VectorData data, Style style) {
+    public VectorOverlay(Context context, VectorDataset data, Style style) {
         super(context);
         this.data = data;
         this.style = style;

@@ -3,8 +3,8 @@ package org.jeo.osmdroid;
 import java.io.IOException;
 import java.io.InputStream;
 
+import org.jeo.data.TileDataset;
 import org.jeo.data.TilePyramid;
-import org.jeo.data.TileSet;
 import org.osmdroid.ResourceProxy;
 import org.osmdroid.tileprovider.MapTile;
 import org.osmdroid.tileprovider.tilesource.BitmapTileSourceBase.LowMemoryException;
@@ -21,12 +21,12 @@ public class TileSetSource implements ITileSource {
 
     static Logger LOG = LoggerFactory.getLogger(TileSetSource.class);
 
-    TileSet tileset;
+    TileDataset tileset;
     TilePyramid tpyr;
 
-    public TileSetSource(TileSet tileset) throws IOException {
+    public TileSetSource(TileDataset tileset) throws IOException {
         this.tileset = tileset;
-        tpyr = tileset.getPyramid();
+        tpyr = tileset.pyramid();
     }
 
     @Override

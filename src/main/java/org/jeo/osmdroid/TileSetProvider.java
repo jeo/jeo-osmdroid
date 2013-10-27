@@ -5,9 +5,9 @@ import java.util.List;
 
 import org.jeo.android.graphics.Graphics;
 import org.jeo.data.Tile;
+import org.jeo.data.TileDataset;
 import org.jeo.data.TileGrid;
 import org.jeo.data.TilePyramid;
-import org.jeo.data.TileSet;
 import org.osmdroid.tileprovider.MapTile;
 import org.osmdroid.tileprovider.MapTileRequestState;
 import org.osmdroid.tileprovider.modules.MapTileModuleProviderBase;
@@ -22,13 +22,13 @@ public class TileSetProvider extends MapTileModuleProviderBase {
 
     static Logger LOG = LoggerFactory.getLogger(TileSetProvider.class);
 
-    TileSet tileset;
+    TileDataset tileset;
     TilePyramid tpyr;
 
-    public TileSetProvider(TileSet tileset) throws IOException {
+    public TileSetProvider(TileDataset tileset) throws IOException {
         super(NUMBER_OF_TILE_DOWNLOAD_THREADS, NUMBER_OF_TILE_FILESYSTEM_THREADS);
         this.tileset = tileset;
-        tpyr = tileset.getPyramid();
+        tpyr = tileset.pyramid();
 
         if (tpyr.getGrids().isEmpty()) {
             throw new IllegalArgumentException("empty tile pyramid");
